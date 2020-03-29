@@ -85,7 +85,7 @@ class Monopatin: public DtMonopatin{
 private:
     bool tieneLuces;
 public:
-    float Vehiculo::darPrecioViaje(int duracion, int distancia, bool tieneLuces);
+    float darPrecioViaje(int duracion, int distancia, bool tieneLuces);
 };
 
 class Bicicleta: public DtBicicleta{
