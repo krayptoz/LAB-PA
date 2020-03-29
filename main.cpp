@@ -67,12 +67,13 @@ private:
     int nroSerie;
     float porcentajeBateria;
     float precioBase;
+    DtMonopatin tieneLuces;
 public:
-   float darPrecioViaje(int duracion, int distancia);
+   float darPrecioViaje(int duracion, int distancia, bool tieneLuces);
 };
 
-float Vehiculo::darPrecioViaje(int,int){
-    if(Monopatin::tieneLuces){
+float Vehiculo::darPrecioViaje(int duracion, int distancia,bool tieneLuces){
+    if(tieneLuces){
         return 0.5 * duracion + distancia * precioBase;
     }
     else{
@@ -84,7 +85,7 @@ class Monopatin: public DtMonopatin{
 private:
     bool tieneLuces;
 public:
-    float darPrecioViaje(int duracion, int distancia);
+    float Vehiculo::darPrecioViaje(int duracion, int distancia, bool tieneLuces);
 };
 
 class Bicicleta: public DtBicicleta{
