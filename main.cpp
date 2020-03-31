@@ -49,18 +49,37 @@ public:
 // Clases
 
 class Usuario{
-public:
+private:
     string cedula;
     string nombre;
     Dtfecha fechaIngreso;
+public:
+    Usuario(string _ci, string _nombre, Dtfecha _fechaIngreso);
 };
 
+Usuario::Usuario(string _ci, string _nombre, Dtfecha _fechaIngreso){
+    string ci = _ci;
+    string nombre = _nombre;
+    _fechaIngreso.anio = 0;
+    _fechaIngreso.mes = 0;
+    _fechaIngreso.dia = 0;
+}
 class Viaje{
-public:
+private:
     Dtfecha fecha;
     int duracion;
     int distancia;
+public:
+    Viaje(Dtfecha fecha, int duracion, int distancia);
 };
+
+Viaje::Viaje(Dtfecha _fecha, int _duracion, int _distancia){
+    _fecha.anio = 0;
+    _fecha.mes = 0;
+    _fecha.dia = 0;
+    int duracion = _duracion;
+    int distacia = _distancia;
+}
 
 class Vehiculo: public Viaje{
 private:
@@ -69,6 +88,7 @@ private:
     float precioBase;
     DtMonopatin tieneLuces;
 public:
+    Vehiculos(int nroSerie, float porcentajeBateria, float precioBase, DtMonopatin tieneLuces);
    float darPrecioViaje(int duracion, int distancia, bool tieneLuces);
 };
 
@@ -81,12 +101,20 @@ float Vehiculo::darPrecioViaje(int duracion, int distancia,bool tieneLuces){
     }
 }
 
-class Monopatin: public DtMonopatin{
+class Monopatin: public Vehiculo{
 private:
-    bool tieneLuces;
+    int nroSerie;
+    float porcentajeBateria;
+    float precioBase;
+    DtMonopatin tieneLuces;
 public:
+    Monopatin(int nroSerie , float porcentajeBateria, float precioBase;, DtMonopatin tieneLuces);
     float darPrecioViaje(int duracion, int distancia, bool tieneLuces);
 };
+
+Monopatin::Monopatin(int _nroSerie, float _porcentajeBateria, float _precioBase;, DtMonopatin _tieneLuces){
+
+}
 
 class Bicicleta: public DtBicicleta{
 private:
