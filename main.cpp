@@ -108,22 +108,37 @@ private:
     float precioBase;
     DtMonopatin tieneLuces;
 public:
-    Monopatin(int nroSerie , float porcentajeBateria, float precioBase;, DtMonopatin tieneLuces);
+    Monopatin(int nroSerie , float porcentajeBateria, float precioBase, DtMonopatin tieneLuces);
     float darPrecioViaje(int duracion, int distancia, bool tieneLuces);
 };
 
-Monopatin::Monopatin(int _nroSerie, float _porcentajeBateria, float _precioBase;, DtMonopatin _tieneLuces){
-
+Usuario::Usuario(string _cedula,string _nombre,Dtfecha _fechaIngreso){
+    cedula=_cedula;
+    nombre=_nombre;
+    fechaIngreso=_fechaIngreso;
 }
 
-class Bicicleta: public DtBicicleta{
-private:
-    TipoBici tipo;
-    int cantCambios;
-public:
-    float darPrecioViaje(int duracion, int distancia);
-};
+Viaje::Viaje(Dtfecha _fecha,int _duracion,int _distancia){
+     fecha=_fecha;
+     duracion=_duracion;
+     distancia=_distancia;
+}
 
+Vehiculo::Vehiculo(int _nroSerie,float _porcentajeBateria,float _precioBase){
+    nroSerie=_nroSerie;
+    porcentajeBateria=_porcentajeBateria;
+    precioBase=_precioBase;
+}
+
+
+Monopatin::Monopatin(int _nroSerie,float _porcentajeBateria,float _precioBase,bool _tieneLuces) : Vehiculo(_nroSerie,_porcentajeBateria,_precioBase){
+    tieneLuces=_tieneLuces;
+}
+
+Bicicleta::Bicicleta(int _nroSerie,float _porcentajeBateria,float _precioBase,TipoBici _tipo, int _cantCambios) : Vehiculo(_nroSerie,_porcentajeBateria,_precioBase){
+    tipo=_tipo;
+    cantCambios=_cantCambios;
+}
 
 
 int main()
